@@ -1,0 +1,24 @@
+{
+  "name": "first-react-agent",
+  "version": "1.0.0",
+  "description": "Reason and Act agent",
+  "homepage": "https://github.com/z-u-a/first-react-agent#readme",
+  "bugs": {
+    "url": "https://github.com/z-u-a/first-react-agent/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/z-u-a/first-react-agent.git"
+  },
+  "license": "ISC",
+  "author": "zain ul abideen",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@google/genai": "^2.27.0",
+    "dotenv": "^18.0.5"
+  }
+}
