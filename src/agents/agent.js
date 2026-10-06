@@ -1,17 +1,26 @@
 import dotenv from 'dotenv';
+import fs from 'fs'
+import path from 'path';
 dotenv.config();
 import { GoogleGenAI } from '@google/genai';
 import {toolsRegistry as executionMap, toolsDeclaration} from '../tools/index.js';
-
 dotenv.config();
 
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+const skillPlaybook = fs.readFileSync(path.join(process.cwd(), 'src/skills/skills.md'), 'utf8');
 
 let chat = ai.chats.create({
   model: process.env.GEMINI_MODEL,
   config: {
-    tools: toolsDeclaration,
-    systemInstruction: "You are a helpful assistant equipped with tools. If a question requires looking up current events or calculating math, you MUST call the appropriate function tool instead of guessing.",
+    tools: [{
+      functionDeclarations: toolsDeclaration
+    }],
+    systemInstruction:  `
+        You are a precise backend assistant executor.
+        You must strictly adhere to the operational parameters, rules, and guardrails outlined in this playbook:
+        
+        ${skillPlaybook}
+      ` ,
   }
 });
 

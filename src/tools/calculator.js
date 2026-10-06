@@ -3,7 +3,7 @@ import { Type } from '@google/genai';
 export let declaration = {
     name: "calculator",
     description: "Solves mathematical expressions. Use this for math problems, equations, or basic arithmetic.",
-    parametersJsonSchema: {
+    parameters: {
         type: Type.OBJECT,
         properties: {
             expression: {

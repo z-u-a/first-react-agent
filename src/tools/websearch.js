@@ -3,7 +3,7 @@ import { Type } from '@google/genai';
 export let declaration = {
     name: "web_search",
     description: "Searches the live internet using Tavily for factual information, current events, or general knowledge questions.",
-    parametersJsonSchema: {
+    parameters: {
         type: Type.OBJECT,
         properties: {
             query: {
